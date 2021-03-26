@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, ImageBackground, View, Image, Text } from 'react-native'
 
-import Screen from '../components/Screen'
+import AppScreen from '../components/AppScreen'
 
 
 const LoadingScreen = () => {
@@ -9,7 +9,7 @@ const LoadingScreen = () => {
         <ImageBackground
             style={styles.ImageBackground}
             source={require("../assets/loading.jpg")}>
-            <Screen style={{}}>
+            <AppScreen>
                 <View style={styles.logoContainer}>
                     <Image style={styles.logo} source={require("../assets/logo.png")} />
                     <Text style={styles.Title} >Amazon</Text>
@@ -18,7 +18,7 @@ const LoadingScreen = () => {
                 <View style={styles.loadingContainer}>
                     <Image style={styles.loading} source={require("../assets/loading.gif")} />
                 </View>
-            </Screen>
+            </AppScreen>
         </ImageBackground>
     )
 }

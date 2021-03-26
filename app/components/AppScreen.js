@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, View } from 'react-native'
 import Constants from 'expo-constants'
 
 
-const Screen = ({ children }) => {
+const AppScreen = ({ children }) => {
     return (
         <SafeAreaView style = {styles.screen} >
             {children}
@@ -11,7 +11,7 @@ const Screen = ({ children }) => {
     )
 }
 
-export default Screen
+export default AppScreen
 
 const styles = StyleSheet.create({
     screen: {
