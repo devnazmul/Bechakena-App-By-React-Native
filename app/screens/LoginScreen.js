@@ -7,22 +7,23 @@ import AppScreen from '../components/AppScreen'
 
 const LoginScreen = () => {
     return (
-        <ImageBackground style={styles.LoginScreen}  source={require('../assets/login.jpg')}>
+        <ImageBackground blurRadius={1} style={styles.LoginScreen}  source={require('../assets/login.jpg')}>
             <AppScreen style={styles.screen}>
+
                 <View style={styles.container}>
                     <Image style={styles.logo} source={require("../assets/logo.png")} />
                     <Text style={styles.Title} >Log In</Text>
                 </View>
+
                 <View style={styles.Inputs}>
                     <AppInput placeholder = 'Email/Username' dataType = 'string' />
-                    <AppInput placeholder = 'Password' dataType = 'string' secure = {true} />
+                    <AppInput placeholder='Password' dataType='string' secure={true} />
                     <TouchableOpacity style={styles.forgot}>
                         <Text>Forgot Password?</Text>
                     </TouchableOpacity>
-                    <AppButton title={'Log In'} />
+                    <AppButton bgColor='black' color='#fff' title={'Log In'} />
                 </View>
-                
-                
+
             </AppScreen>
         </ImageBackground>
     )
