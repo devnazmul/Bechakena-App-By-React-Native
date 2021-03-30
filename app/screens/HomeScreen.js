@@ -1,10 +1,11 @@
-import React from 'react'
-import { FlatList, StyleSheet, TouchableHighlight, TouchableOpacity, View } from 'react-native'
+import React, { useRef } from 'react'
+import { ColorPropType, FlatList, StyleSheet, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, View } from 'react-native'
 import AppCard from '../components/AppCard'
 import { Ionicons, EvilIcons, AntDesign, MaterialIcons, Entypo, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import AppCategory from '../components/AppCategory';
-
+import color from '../config/Color'
+import Color from '../config/Color';
 
 var products = [
     {
@@ -133,6 +134,10 @@ var categorys = [
     },
 ]
 const HomeScreen = () => {
+
+    const animation = useRef()
+
+
     return (
         <View style={styles.HomeScreen}>
             <View style={styles.topBar} >
@@ -140,7 +145,7 @@ const HomeScreen = () => {
                     <Ionicons name="ios-search-outline" size={30} color="#fff" />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <EvilIcons name="cart" size={30} color="#fff" />
+                    <EvilIcons name="cart" size={35} color="#fff" />
                 </TouchableOpacity>
             </View>
 
@@ -162,21 +167,21 @@ const HomeScreen = () => {
                 />
             </View>
             <View style={styles.navBar} >
-                <TouchableHighlight>
-                    <AntDesign name="home" size={28} color="black" />
-                </TouchableHighlight>
-                <TouchableHighlight>
-                    <MaterialIcons name="category" size={28} color="black" />
-                </TouchableHighlight>
-                <TouchableHighlight style={styles.addItems} >
-                    <Entypo name="plus" size={35} color="#F652A0" />
-                </TouchableHighlight>
-                <TouchableHighlight>
-                    <Feather name="message-circle" size={28} color="black" />
-                </TouchableHighlight>
-                <TouchableHighlight>
-                    <MaterialCommunityIcons name="face-profile" size={28} color="black" />
-                </TouchableHighlight>
+                <TouchableOpacity>
+                    <AntDesign name="home" size={28} color={Color.light} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <MaterialIcons name="category" size={28} color={Color.light} />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.addItems} >
+                    <Entypo name="plus" size={35} color={color.primary} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Feather name="message-circle" size={28} color={Color.light} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <MaterialCommunityIcons name="face-profile" size={28} color={Color.light} />
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -187,25 +192,26 @@ export default HomeScreen
 const styles = StyleSheet.create({
     HomeScreen: {
         flex: 1,
-        backgroundColor: '#333652'
+        backgroundColor: color.light,
     },
     lst: {
         flex: 1
     },
     categorys: {
-        marginVertical: 20
+        marginBottom:10
     },
     topBar: {
-        backgroundColor: '#F652A0',
-        height: 100,
-        borderRadius: 15,
+        backgroundColor: color.primary,
+        height: 70,
+        borderBottomRightRadius: 15,
+        borderBottomLeftRadius: 15,
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'flex-end',
         padding: 10
     },
     navBar: {
-        backgroundColor: '#F652A0',
+        backgroundColor: color.primary,
         height: 50,
         borderTopRightRadius: 15,
         borderTopLeftRadius: 15,
@@ -222,6 +228,10 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        
+        shadowColor: 'black',
+        shadowOpacity: 1,
+        shadowOffset: { width: 0, height: 5},
+        shadowRadius: 5,
+        elevation: 10
     }
 })

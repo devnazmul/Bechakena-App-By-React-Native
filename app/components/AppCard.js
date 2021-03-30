@@ -1,6 +1,8 @@
 import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
+import color from '../config/Color'
+
 const AppCard = ({Source, Title, Price, onPress }) => {
     return (
         <TouchableOpacity style={styles.cardContainer} onPress={onPress}>
@@ -18,10 +20,16 @@ export default AppCard
 const styles = StyleSheet.create({
     cardContainer: {
         overflow: 'hidden',
-        backgroundColor: '#F652A0',
+        backgroundColor: color.primary,
         marginHorizontal: 20,
         borderRadius: 10,
-        marginVertical: 10
+        marginVertical: 10,
+
+        shadowColor: 'black',
+        shadowOpacity: 1,
+        shadowOffset: { width: 0, height: 5},
+        shadowRadius: 5,
+        elevation: 10
     },
     Image: {
         height: 250,
@@ -35,11 +43,11 @@ const styles = StyleSheet.create({
     Title: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: '#333652'
+        color: color.light
     },
     Price: {
         fontSize: 20,
-        color: '#E9EAEC',
+        color: color.dark,
         fontWeight: 'bold',
         paddingHorizontal: 20
     }
