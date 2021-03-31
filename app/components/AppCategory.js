@@ -7,7 +7,6 @@ const AppCategory = ({Source, Title, onPress}) => {
             <ImageBackground style={styles.Image} source={Source} resizeMode='cover' >
                 <View style={styles.Details}>
                     <Text style={styles.Title}>{Title}</Text>
-                    
                 </View>
             </ImageBackground>
         </TouchableOpacity>

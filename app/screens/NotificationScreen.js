@@ -3,12 +3,14 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { AntDesign, MaterialIcons , Entypo, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Color from '../config/Color';
-
-const AddItemScreen = ({navigation}) => {
+import { FlatList } from 'react-native-gesture-handler';
+const NotificationScreen = ({navigation}) => {
     return (
-        <View style={[styles.AddItemScreen,{flex:1}]} >
+        <View style={[styles.NotificationScreen,{flex:1}]} >
             <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-                <Text>AddItemScreen</Text>
+                <FlatList
+                    
+                />
             </View>
             <View style={[styles.navBar]} >
                 <TouchableOpacity onPress={()=>{navigation.navigate('HomeScreen')}}>
@@ -31,10 +33,10 @@ const AddItemScreen = ({navigation}) => {
     )
 }
 
-export default AddItemScreen
+export default NotificationScreen
 
 const styles = StyleSheet.create({
-        navBar: {
+    navBar: {
         backgroundColor: Color.primary,
         height: 50,
         borderTopRightRadius: 15,

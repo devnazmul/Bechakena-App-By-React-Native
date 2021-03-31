@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginVertical: 10,
 
-        shadowColor: 'black',
+        shadowColor: '#ff5500',
         shadowOpacity: 1,
-        shadowOffset: { width: 0, height: 5},
-        shadowRadius: 5,
-        elevation: 10
+        shadowOffset: { width: 5, height: 5},
+        shadowRadius: 4,
+        elevation:5
     },
     Image: {
         height: 250,

@@ -6,6 +6,7 @@ import AppInput from '../components/AppInput'
 import AppButton from '../components/AppButton'
 
 const WelcomeScreen = () => {
+    
     return (
         
         <ImageBackground blurRadius={1} style={styles.WelcomeScreen} source={require('../assets/welcome.jpg')}>

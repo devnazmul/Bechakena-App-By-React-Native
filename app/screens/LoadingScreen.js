@@ -1,10 +1,19 @@
 import React from 'react'
 import { StyleSheet, ImageBackground, View, Image, Text } from 'react-native'
+import { useEffect } from 'react/cjs/react.development'
 
 import AppScreen from '../components/AppScreen'
 
 
-const LoadingScreen = () => {
+const LoadingScreen = ({ navigation }) => {
+
+    useEffect(()=> {
+        setTimeout(() => {
+            navigation.navigate('HomeScreen')
+        },2000)
+    })
+    
+
     return (
         <ImageBackground
             style={styles.ImageBackground}

@@ -1,7 +1,8 @@
 export default {
     primary: '#ff5500',
-    secondery: '',
+   
     light: '#fff',
-    dark: '#000'
+    dark: '#000',
+    green: '#0f0'
 }
 

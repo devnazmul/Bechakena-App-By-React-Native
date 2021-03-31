@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
-import { ColorPropType, FlatList, StyleSheet, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, View } from 'react-native'
+import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native'
 import AppCard from '../components/AppCard'
-import { Ionicons, EvilIcons, AntDesign, MaterialIcons, Entypo, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons, EvilIcons, AntDesign, MaterialIcons , Entypo, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import AppCategory from '../components/AppCategory';
-import color from '../config/Color'
-import Color from '../config/Color';
+
+import Color from '../config/Color'
 
 var products = [
     {
@@ -133,7 +133,7 @@ var categorys = [
         Title: 'Jobs',
     },
 ]
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
     const animation = useRef()
 
@@ -142,10 +142,10 @@ const HomeScreen = () => {
         <View style={styles.HomeScreen}>
             <View style={styles.topBar} >
                 <TouchableOpacity>
-                    <Ionicons name="ios-search-outline" size={30} color="#fff" />
+                    <Ionicons name="ios-search-outline" size={30} color={Color.light} />
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <EvilIcons name="cart" size={35} color="#fff" />
+                    <EvilIcons name="cart" size={35} color={Color.light} />
                 </TouchableOpacity>
             </View>
 
@@ -159,7 +159,6 @@ const HomeScreen = () => {
                     renderItem={({ item }) => <AppCategory Source={item.Image} Title={item.Title} />}
                 />
                 <FlatList
-                    
                     showsVerticalScrollIndicator={false}
                     data={products}
                     keyExtractor={product => product.id.toString()}
@@ -167,20 +166,20 @@ const HomeScreen = () => {
                 />
             </View>
             <View style={styles.navBar} >
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{navigation.navigate('HomeScreen')}}>
                     <AntDesign name="home" size={28} color={Color.light} />
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <MaterialIcons name="category" size={28} color={Color.light} />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.addItems} >
-                    <Entypo name="plus" size={35} color={color.primary} />
-                </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('SmsScreen')}>
                     <Feather name="message-circle" size={28} color={Color.light} />
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <MaterialCommunityIcons name="face-profile" size={28} color={Color.light} />
+                <TouchableOpacity style={styles.addItems} onPress={() => navigation.navigate('AddItemScreen')} >
+                    <Entypo name="plus" size={35} color={Color.primary} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('NotificationScreen')}>
+                    <MaterialIcons name="notifications-none" size={28} color={Color.light} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
+                    <MaterialCommunityIcons name="account-circle-outline" size={28} color={Color.light} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -192,7 +191,7 @@ export default HomeScreen
 const styles = StyleSheet.create({
     HomeScreen: {
         flex: 1,
-        backgroundColor: color.light,
+        backgroundColor: Color.light,
     },
     lst: {
         flex: 1
@@ -201,8 +200,8 @@ const styles = StyleSheet.create({
         marginBottom:10
     },
     topBar: {
-        backgroundColor: color.primary,
-        height: 70,
+        backgroundColor: Color.primary,
+        height: 80,
         borderBottomRightRadius: 15,
         borderBottomLeftRadius: 15,
         justifyContent: 'space-between',
@@ -211,7 +210,7 @@ const styles = StyleSheet.create({
         padding: 10
     },
     navBar: {
-        backgroundColor: color.primary,
+        backgroundColor: Color.primary,
         height: 50,
         borderTopRightRadius: 15,
         borderTopLeftRadius: 15,
